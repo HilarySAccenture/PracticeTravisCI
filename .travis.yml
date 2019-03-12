@@ -15,6 +15,6 @@ dotnet: 2.2
 # These should be the same commands you would type in to build your code locally
 script:
   # dotnet commands will not run unless in the same directory as the solution
-  - cd /home/travis/build/HilarySAccenture/dotnetTravis/PracticeTravisCI
+  - - cd /home/travis/build/HilarySAccenture/PracticeTravisCI
   - dotnet restore
   - dotnet build
