@@ -1,0 +1,20 @@
+# tell Travis what language your code is in
+language: csharp
+# Mono is the framework used to translate dotnet into non-windows environments
+# if using dotnet Core (cross platform), no mono is needed
+mono: none
+# Needed to allow commands to run as the administrative user in the travis virtual environment
+sudo: required
+# The version of Ubuntu Linux the virtual environment runs on
+# Default is Trusty (if left blank)
+# xenial required for dotnet Core 2.2+
+dist: xenial
+# Define the SDK version of dotnet Core (not the runtime version)
+dotnet: 2.2
+# The actual commands keyed into the terminal in the Travis virtual environment
+# These should be the same commands you would type in to build your code locally
+script:
+  # dotnet commands will not run unless in the same directory as the solution
+  - cd /home/travis/build/{yourTravisAccount}/{yourRepoRootDirectory}/{yourSolutionDirectory}/
+  - dotnet restore
+  - dotnet build
